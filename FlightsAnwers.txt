@@ -1,0 +1,12 @@
+
+SELECT
+    COUNT(*) AS number_of_flights_nyc_to_paris
+FROM
+    routes r
+JOIN
+    airports origin_airport ON r.origin_id = origin_airport.id -- Join routes to airports for the origin
+JOIN
+    airports dest_airport ON r.dest_id = dest_airport.id -- Join routes to airports for the destination
+WHERE
+    origin_airport.city = 'New York' 
+    AND dest_airport.city = 'Paris'; 
